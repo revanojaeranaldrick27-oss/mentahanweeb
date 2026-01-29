@@ -1,0 +1,2950 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karang Taruna - Berkarya Untuk Negeri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        /* Color Palette */
+        :root {
+            --dark: #1E0000;
+            --wine: #500805;
+            --clay: #9D331F;
+            --dusty-rose: #BC6D4F;
+            --light: #f5f5f5;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--wine) 100%);
+            color: white;
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: all 0.3s;
+            white-space: nowrap;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            position: relative;
+            line-height: 1;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1.2rem;
+            right: 1.2rem;
+            height: 2px;
+            background: var(--dusty-rose);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.15);
+            color: var(--dusty-rose);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--wine) 0%, var(--clay) 50%, var(--dusty-rose) 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect fill="rgba(255,255,255,0.03)" width="50" height="50"/><rect fill="rgba(255,255,255,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            font-weight: 800;
+            letter-spacing: -1px;
+            white-space: nowrap;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.98;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.1rem 3rem;
+            background: white;
+            color: var(--wine);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+            background: var(--dusty-rose);
+            color: white;
+        }
+
+        /* Profile Section */
+        .profile {
+            padding: 100px 2rem;
+            background: white;
+        }
+
+        .profile-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .profile-text {
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        .profile-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-image {
+            background: linear-gradient(135deg, var(--clay), var(--dusty-rose));
+            height: 450px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(157, 51, 31, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .profile-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(157, 51, 31, 0.35);
+        }
+
+        .profile-image:hover::before {
+            opacity: 1;
+        }
+
+        /* Visi & Misi Section */
+        .visi-misi {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, rgba(245, 245, 245, 1) 0%, rgba(250, 250, 250, 1) 100%);
+        }
+
+        .visi-misi-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .visi-card, .misi-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            border-top: 5px solid var(--wine);
+        }
+
+        .visi-card:hover, .misi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .visi-misi-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .visi-card h3, .misi-card h3 {
+            color: var(--wine);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .visi-card p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .misi-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .misi-card li {
+            color: #555;
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .misi-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--clay);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Struktur Kepengurusan Section */
+        .struktur {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, var(--wine) 0%, var(--clay) 100%);
+            color: white;
+        }
+
+        .struktur-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .struktur-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,255,255,0.15);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .struktur-card:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .struktur-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(188, 109, 79, 0.3), rgba(157, 51, 31, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 3px solid rgba(255,255,255,0.2);
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+        .struktur-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .struktur-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .struktur-card p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--wine);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--clay), var(--dusty-rose));
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(157, 51, 31, 0.3);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--clay), var(--dusty-rose));
+            height: 450px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(157, 51, 31, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(157, 51, 31, 0.35);
+        }
+
+        .about-image:hover::before {
+            opacity: 1;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 80px 2rem;
+            background: var(--light);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            border-top: 5px solid var(--clay);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(157, 51, 31, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
+        }
+
+        .program-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-top-color: var(--dusty-rose);
+        }
+
+        .program-card:hover::before {
+            opacity: 1;
+        }
+
+        .program-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--wine), var(--clay));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            box-shadow: 0 5px 15px rgba(80, 8, 5, 0.2);
+            transition: all 0.3s;
+        }
+
+        .program-card:hover .program-icon {
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+        .program-card h3 {
+            color: var(--wine);
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-card p {
+            color: #666;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+            font-size: 1rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 2rem;
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            height: 280px;
+            background: linear-gradient(135deg, var(--dark), var(--wine), var(--clay));
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.08) translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .gallery-item::after {
+            content: 'Kegiatan Karang Taruna';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: white;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, var(--wine) 0%, var(--clay) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .contact-content {
+            max-width: 1100px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: var(--wine);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .narahubung-section,
+        .social-media-section {
+            background: rgba(255,255,255,0.08);
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255,255,255,0.15);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .narahubung-section:hover,
+        .social-media-section:hover {
+            background: rgba(255,255,255,0.13);
+            border-color: rgba(255,255,255,0.25);
+            box-shadow: 0 16px 50px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+        }
+
+        .narahubung-section h3,
+        .social-media-section h3 {
+            color: white;
+            margin-bottom: 2.5rem;
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+            letter-spacing: -0.5px;
+        }
+
+        .narahubung-item,
+        .social-media-item {
+            background: rgba(255,255,255,0.12);
+            padding: 1.8rem;
+            border-radius: 18px;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            border-left: 5px solid rgba(188, 109, 79, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-left: 5px solid rgba(188, 109, 79, 0.8);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .narahubung-item:hover,
+        .social-media-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(10px);
+            border-left-color: var(--dusty-rose);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .narahubung-item {
+            color: white;
+        }
+
+        .narahubung-item strong {
+            display: block;
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .narahubung-item small {
+            color: rgba(255,255,255,0.88);
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        .social-media-item a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-media-item a:hover {
+            color: var(--dusty-rose);
+        }
+
+        .social-media-icon {
+            font-size: 2.2rem;
+            min-width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(188, 109, 79, 0.25);
+            border-radius: 15px;
+            width: 60px;
+            height: 60px;
+            transition: all 0.4s;
+            border: 2px solid rgba(188, 109, 79, 0.4);
+        }
+
+        .social-media-item a:hover .social-media-icon {
+            background: rgba(188, 109, 79, 0.5);
+            transform: scale(1.15) rotate(8deg);
+            border-color: var(--dusty-rose);
+            box-shadow: 0 6px 20px rgba(188, 109, 79, 0.3);
+        }
+
+        .social-media-item-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .social-media-item-content strong {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .social-media-item-content small {
+            color: rgba(255,255,255,0.88);
+            font-size: 0.98rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-family: inherit;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background: white;
+            color: var(--wine);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--dusty-rose);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--wine) 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+            border-top: 2px solid rgba(188, 109, 79, 0.3);
+        }
+
+        footer h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            opacity: 0.9;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .social-link:hover {
+            background: var(--dusty-rose);
+            transform: translateY(-5px) scale(1.1);
+            border-color: var(--dusty-rose);
+            box-shadow: 0 8px 20px rgba(188, 109, 79, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .programs-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-container {
+                max-width: 95%;
+                border-radius: 20px;
+            }
+
+            .admin-tabs {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                width: 100%;
+            }
+
+            .admin-content {
+                max-height: 70vh;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-footer {
+                flex-direction: column;
+            }
+
+            .admin-btn {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Karang Taruna</a>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#visi-misi">Visi & Misi</a></li>
+                <li><a href="#struktur">Struktur</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#galeri">Kegiatan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero">
+        <div class="hero-content">
+            <h1>Karang Taruna</h1>
+            <p>Wadah Pengembangan Generasi Muda yang Berkarakter, Kreatif, dan Berprestasi</p>
+            <a href="#program" class="btn">Lihat Program Kami</a>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profil" class="profile">
+        <div class="container">
+            <h2 class="section-title">Profil Kami</h2>
+            <div class="profile-content">
+                <div class="profile-text">
+                    <p id="profileTextContent"></p>
+                </div>
+                <div class="profile-image" id="profileImageArea"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi & Misi Section -->
+    <section id="visi-misi" class="visi-misi">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--wine);">Visi & Misi</h2>
+            <div class="visi-misi-content">
+                <div class="visi-card">
+                    <h3>Visi</h3>
+                    <p id="visiContent"></p>
+                </div>
+                <div class="misi-card">
+                    <h3>Misi</h3>
+                    <ul id="misiContent"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Struktur Kepengurusan Section -->
+    <section id="struktur" class="struktur">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Struktur Kepengurusan</h2>
+            <div id="strukturList" class="struktur-grid"></div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="program" class="programs">
+        <div class="container">
+            <h2 class="section-title">Program Unggulan</h2>
+            <div class="programs-grid"></div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeri" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeri Kegiatan</h2>
+            <div class="gallery-grid"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Hubungi Kami</h2>
+            <div class="contact-content">
+                <div id="narahubungSection" class="narahubung-section">
+                    <h3>Narahubung</h3>
+                    <div id="narahubungList"></div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <div id="socialMediaSection" class="social-media-section">
+                        <h3>Media Sosial & Email</h3>
+                        <div id="socialMediaList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Karang Taruna</h3>
+            <div class="social-links"></div>
+            <p>&copy; 2026 Karang Taruna. Bersama Membangun Generasi Emas.</p>
+        </div>
+    </footer>
+
+    <!-- Admin Login Form (Hidden) -->
+    <div id="adminLoginForm" class="admin-login-form">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>🔐 Admin Login</h2>
+            </div>
+            <form onsubmit="handleAdminLogin(event)">
+                <div class="form-group-login">
+                    <label>Username</label>
+                    <input type="text" id="loginUsername" placeholder="Masukkan username" required>
+                </div>
+                <div class="form-group-login">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="Masukkan password" required>
+                </div>
+                <div id="loginError" class="login-error"></div>
+                <button type="submit" class="login-btn">Login</button>
+                <button type="button" class="cancel-btn" onclick="closeAdminLogin()">Batal</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel (Hidden) -->
+    <div id="adminPanel" class="admin-panel">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h2>Panel Admin Karang Taruna</h2>
+                <button class="close-admin" onclick="closeAdmin()">✕</button>
+            </div>
+            
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="showTab('colors')">Warna</button>
+                <button class="tab-btn" onclick="showTab('hero')">Hero</button>
+                <button class="tab-btn" onclick="showTab('about')">Profil</button>
+                <button class="tab-btn" onclick="showTab('visimisi')">Visi & Misi</button>
+                <button class="tab-btn" onclick="showTab('struktur')">Struktur</button>
+                <button class="tab-btn" onclick="showTab('programs')">Program</button>
+                <button class="tab-btn" onclick="showTab('gallery')">Galeri</button>
+                <button class="tab-btn" onclick="showTab('contact')">Kontak</button>
+            </div>
+
+            <div class="admin-content">
+                <!-- Colors Tab -->
+                <div id="tab-colors" class="tab-content active">
+                    <h3>Pengaturan Warna</h3>
+                    <div class="form-grid">
+                        <div class="form-group-admin">
+                            <label>Warna Gelap</label>
+                            <input type="color" id="colorDark" value="#1E0000">
+                            <input type="text" id="colorDarkText" value="#1E0000">
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Warna Wine</label>
+                            <input type="color" id="colorWine" value="#500805">
+                            <input type="text" id="colorWineText" value="#500805">
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Warna Clay</label>
+                            <input type="color" id="colorClay" value="#9D331F">
+                            <input type="text" id="colorClayText" value="#9D331F">
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Warna Dusty Rose</label>
+                            <input type="color" id="colorRose" value="#BC6D4F">
+                            <input type="text" id="colorRoseText" value="#BC6D4F">
+                        </div>
+                    </div>
+                    <button class="admin-btn" onclick="updateColors()">Simpan Warna</button>
+                </div>
+
+                <!-- Hero Tab -->
+                <div id="tab-hero" class="tab-content">
+                    <h3>Pengaturan Hero Section</h3>
+                    <div class="form-group-admin">
+                        <label>Judul Utama</label>
+                        <input type="text" id="heroTitle" value="Karang Taruna">
+                    </div>
+                    <div class="form-group-admin">
+                        <label>Deskripsi</label>
+                        <textarea id="heroDesc" rows="3">Wadah Pengembangan Generasi Muda yang Berkarakter, Kreatif, dan Berprestasi</textarea>
+                    </div>
+                    <div class="form-group-admin">
+                        <label>Foto Background Deskripsi</label>
+                        <input type="file" id="heroBgImage" accept="image/*" onchange="previewHeroBg(event)">
+                        <div id="heroBgPreview" style="margin-top: 1rem; text-align: center;">
+                            <small style="color: #666;">Pilih foto untuk background deskripsi (JPG, PNG, max 2MB)</small>
+                        </div>
+                    </div>
+                    <div class="form-group-admin">
+                        <label>Teks Tombol</label>
+                        <input type="text" id="heroBtn" value="Lihat Program Kami">
+                    </div>
+                    <button class="admin-btn" onclick="updateHero()">Simpan Hero</button>
+                </div>
+
+                <!-- About Tab -->
+                <div id="tab-about" class="tab-content">
+                    <h3>Pengaturan Profil</h3>
+                    <div class="form-group-admin">
+                        <label>Deskripsi Profil</label>
+                        <textarea id="aboutText" rows="6">Karang Taruna adalah organisasi sosial kemasyarakatan sebagai wadah dan sarana pengembangan setiap anggota masyarakat yang tumbuh dan berkembang atas dasar kesadaran dan tanggung jawab sosial dari, oleh, dan untuk masyarakat terutama generasi muda. Kami berkomitmen untuk memberdayakan pemuda dalam berbagai bidang seperti pendidikan, kewirausahaan, olahraga, seni budaya, dan kegiatan sosial kemasyarakatan lainnya. Bersama-sama kita membangun generasi muda yang tangguh, kreatif, dan berakhlak mulia untuk masa depan Indonesia yang lebih baik.</textarea>
+                    </div>
+                    <div class="form-group-admin">
+                        <label>Foto Profil</label>
+                        <input type="file" id="profileImageUpload" accept="image/*" onchange="handleProfileImageUpload(event)">
+                        <small>Pilih foto untuk area profil (JPG, PNG, max 2MB)</small>
+                        <div id="profileImagePreview" style="margin-top: 1rem; text-align: center;">
+                            <small style="color: #666;">Pratinjau foto</small>
+                        </div>
+                    </div>
+                    <button class="admin-btn" onclick="updateAbout()">Simpan Profil</button>
+                </div>
+
+                <!-- Visi & Misi Tab -->
+                <div id="tab-visimisi" class="tab-content">
+                    <h3>Pengaturan Visi & Misi</h3>
+                    <div id="visiMisiForm"></div>
+                </div>
+
+                <!-- Struktur Tab -->
+                <div id="tab-struktur" class="tab-content">
+                    <h3>Pengaturan Struktur Kepengurusan</h3>
+                    <div id="strukturAdminList"></div>
+                    <div id="addStrukturBtn"></div>
+                    <button class="admin-btn" onclick="updateStruktur()">Simpan Struktur</button>
+                </div>
+
+                <!-- Programs Tab -->
+                <div id="tab-programs" class="tab-content">
+                    <h3>Pengaturan Program</h3>
+                    <div id="programsList"></div>
+                    <button class="admin-btn" onclick="addProgram()">Tambah Program</button>
+                    <button class="admin-btn" onclick="savePrograms()">Simpan Semua Program</button>
+                </div>
+
+                <!-- Gallery Tab -->
+                <div id="tab-gallery" class="tab-content">
+                    <h3>Pengaturan Galeri</h3>
+                    <p style="margin-bottom: 1rem;">Upload foto kegiatan (format: JPG, PNG, max 2MB per foto)</p>
+                    <div id="galleryList"></div>
+                    <button class="admin-btn" onclick="addGalleryItem()">Tambah Foto</button>
+                    <button class="admin-btn" onclick="saveGallery()">Simpan Galeri</button>
+                </div>
+
+                <!-- Contact Tab -->
+                <div id="tab-contact" class="tab-content">
+                    <h3>Pengaturan Kontak</h3>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: var(--wine); margin-bottom: 1rem;">Narahubung</h4>
+                        <div id="narahubungAdminList"></div>
+                        <button class="admin-btn" onclick="addNarahubung()">Tambah Narahubung</button>
+                    </div>
+
+                    <div style="border-top: 2px solid #ddd; padding-top: 2rem;">
+                        <h4 style="color: var(--wine); margin-bottom: 1rem;">Media Sosial & Email</h4>
+                        <div id="socialMediaAdminList"></div>
+                        <button class="admin-btn" onclick="addSocialMedia()">Tambah Media Sosial</button>
+                    </div>
+
+                    <button class="admin-btn" onclick="updateContact()" style="margin-top: 2rem;">Simpan Kontak</button>
+                </div>
+            </div>
+
+            <div class="admin-footer">
+                <button class="admin-btn danger" onclick="resetWebsite()">Reset ke Default</button>
+                <button id="undoBtn" class="admin-btn" onclick="undoChanges()" style="display: none; background: linear-gradient(135deg, #ffc107, #ff9800);">Batalkan Perubahan</button>
+                <button class="admin-btn danger" onclick="logoutAdmin()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save Notification -->
+    <div id="saveNotification" class="save-notification"></div>
+
+    <style>
+        /* Admin Login Form Styles */
+        .admin-login-form {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9998;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .admin-login-form.active {
+            display: flex;
+        }
+
+        .login-container {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 25px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+            animation: slideIn 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .login-header h2 {
+            color: var(--wine);
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .form-group-login {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group-login label {
+            display: block;
+            margin-bottom: 0.7rem;
+            color: #333;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group-login input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: #f9f9f9;
+        }
+
+        .form-group-login input:focus {
+            outline: none;
+            border-color: var(--wine);
+            box-shadow: 0 0 0 4px rgba(80, 8, 5, 0.1);
+            background: white;
+        }
+
+        .login-error {
+            color: #721c24;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8d7da;
+            border: 2px solid #f5c6cb;
+            border-radius: 10px;
+            display: none;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .login-error.show {
+            display: block;
+            animation: shake 0.4s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 1.1rem;
+            background: linear-gradient(135deg, var(--wine), var(--clay));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 20px rgba(80, 8, 5, 0.2);
+            letter-spacing: 0.3px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(80, 8, 5, 0.3);
+        }
+
+        .login-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .cancel-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #e8e8e8;
+            color: #333;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cancel-btn:hover {
+            background: #d8d8d8;
+            border-color: #999;
+        }
+
+        /* Admin Panel Styles */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 2rem;
+            backdrop-filter: blur(3px);
+        }
+
+        .admin-panel.active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .admin-container {
+            background: #fafafa;
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 20px;
+            margin: 2rem auto;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+            overflow: hidden;
+            animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .admin-header {
+            background: linear-gradient(135deg, var(--wine) 0%, var(--clay) 100%);
+            color: white;
+            padding: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(80, 8, 5, 0.25);
+        }
+
+        .admin-header h2 {
+            margin: 0;
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .close-admin {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-admin:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg) scale(1.1);
+            border-color: white;
+        }
+
+        .admin-tabs {
+            display: flex;
+            background: linear-gradient(90deg, #f8f9fa 0%, #f0f0f0 100%);
+            padding: 1rem;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #e0e0e0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .tab-btn {
+            padding: 0.85rem 1.7rem;
+            border: 2px solid transparent;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            color: #666;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            background: var(--dusty-rose);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(188, 109, 79, 0.25);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--wine), var(--clay));
+            color: white;
+            box-shadow: 0 8px 20px rgba(80, 8, 5, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .admin-content {
+            padding: 3rem 2.5rem;
+            max-height: 650px;
+            overflow-y: auto;
+            background: #fafafa;
+        }
+
+        .admin-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .admin-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .admin-content::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--wine), var(--clay));
+            border-radius: 10px;
+        }
+
+        .admin-content::-webkit-scrollbar-thumb:hover {
+            background: var(--clay);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .tab-content h3 {
+            color: var(--wine);
+            margin-bottom: 2.2rem;
+            font-size: 1.6rem;
+            font-weight: 800;
+            border-bottom: 3px solid var(--dusty-rose);
+            padding-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group-admin {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group-admin label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+            color: #333;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group-admin input[type="text"],
+        .form-group-admin input[type="email"],
+        .form-group-admin input[type="color"],
+        .form-group-admin input[type="file"],
+        .form-group-admin textarea,
+        .form-group-admin select {
+            width: 100%;
+            padding: 1.1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            background: white;
+        }
+
+        .form-group-admin input[type="color"] {
+            height: 55px;
+            cursor: pointer;
+            padding: 0.3rem;
+            border-radius: 12px;
+        }
+
+        .form-group-admin input:focus,
+        .form-group-admin textarea:focus,
+        .form-group-admin select:focus {
+            outline: none;
+            border-color: var(--wine);
+            box-shadow: 0 0 0 4px rgba(80, 8, 5, 0.08);
+            background: #fafafa;
+            transform: translateY(-2px);
+        }
+
+        .admin-btn {
+            background: linear-gradient(135deg, var(--wine), var(--clay));
+            color: white;
+            border: none;
+            padding: 1.2rem 2.8rem;
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 8px 20px rgba(80, 8, 5, 0.2);
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
+
+        .admin-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(80, 8, 5, 0.3);
+        }
+
+        .admin-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .admin-btn.danger {
+            background: linear-gradient(135deg, #dc3545, #e74c3c);
+            box-shadow: 0 6px 20px rgba(220, 53, 69, 0.2);
+        }
+
+        .admin-btn.danger:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(220, 53, 69, 0.3);
+        }
+
+        .admin-footer {
+            padding: 2.5rem;
+            background: linear-gradient(90deg, #f8f9fa 0%, #f0f0f0 100%);
+            border-top: 2px solid #e9ecef;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .program-item, .gallery-item-admin {
+            background: linear-gradient(135deg, white 0%, #f9f9f9 100%);
+            padding: 2.2rem;
+            border-radius: 15px;
+            margin-bottom: 1.8rem;
+            border-left: 5px solid var(--clay);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            border: 1px solid #e9ecef;
+        }
+
+        .program-item:hover, .gallery-item-admin:hover {
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+            border-left-color: var(--wine);
+        }
+
+        .program-item h4 {
+            color: var(--wine);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .remove-btn {
+            background: linear-gradient(135deg, #dc3545, #e74c3c);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.2);
+        }
+
+        .remove-btn:hover {
+            background: linear-gradient(135deg, #c82333, #d33c2a);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(220, 53, 69, 0.3);
+        }
+
+        .struktur-admin-item {
+            background: linear-gradient(135deg, #f9f9f9 0%, #fff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #eee;
+            border-left: 5px solid var(--clay);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .struktur-admin-item:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+        }
+
+        .struktur-admin-item h4 {
+            color: var(--wine);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .add-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+        }
+
+        .add-btn:hover {
+            background: linear-gradient(135deg, #20c997, #17a2b8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(40, 167, 69, 0.3);
+        }
+
+        .save-btn {
+            background: linear-gradient(135deg, var(--wine), var(--clay));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 6px 20px rgba(80, 8, 5, 0.2);
+        }
+
+        .save-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(80, 8, 5, 0.3);
+        }
+
+        /* Save Notification */
+        .save-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 1.2rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            z-index: 10000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .save-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .save-notification.success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+
+        .save-notification.undo {
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            color: white;
+        }
+
+        .save-notification.error {
+            background: linear-gradient(135deg, #dc3545, #e74c3c);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .save-notification {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                max-width: none;
+            }
+        }
+    </style>
+
+    <script>
+        // Admin Session Management - Initialize immediately
+        let adminSession = {
+            isLoggedIn: false,
+            sessionToken: null
+        };
+
+        // Initialize session from localStorage immediately
+        function initAdminSession() {
+            const savedSession = localStorage.getItem('adminSession');
+            if (savedSession) {
+                try {
+                    const parsed = JSON.parse(savedSession);
+                    adminSession = parsed;
+                } catch (e) {
+                    adminSession = { isLoggedIn: false, sessionToken: null };
+                }
+            }
+        }
+
+        // Call immediately when script loads
+        initAdminSession();
+
+        function saveAdminSession() {
+            try {
+                localStorage.setItem('adminSession', JSON.stringify(adminSession));
+                console.log('Session saved:', adminSession);
+            } catch (e) {
+                console.error('Failed to save session:', e);
+            }
+        }
+
+        function createSessionToken() {
+            return 'token_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // Data Storage
+        let previousWebsiteData = null;
+        let lastSaveTime = null;
+        
+        let websiteData = {
+            colors: {
+                dark: '#1E0000',
+                wine: '#500805',
+                clay: '#9D331F',
+                rose: '#BC6D4F'
+            },
+            hero: {
+                title: 'Karang Taruna',
+                desc: 'Wadah Pengembangan Generasi Muda yang Berkarakter, Kreatif, dan Berprestasi',
+                btnText: 'Lihat Program Kami',
+                bgImage: ''
+            },
+            about: {
+                text: 'Karang Taruna adalah organisasi sosial kemasyarakatan sebagai wadah dan sarana pengembangan setiap anggota masyarakat yang tumbuh dan berkembang atas dasar kesadaran dan tanggung jawab sosial dari, oleh, dan untuk masyarakat terutama generasi muda. Kami berkomitmen untuk memberdayakan pemuda dalam berbagai bidang seperti pendidikan, kewirausahaan, olahraga, seni budaya, dan kegiatan sosial kemasyarakatan lainnya. Bersama-sama kita membangun generasi muda yang tangguh, kreatif, dan berakhlak mulia untuk masa depan Indonesia yang lebih baik.',
+                image: ''
+            },
+            visiMisi: {
+                visi: 'Menjadi organisasi pemberdayaan generasi muda yang maju, mandiri, dan berkarakter dalam membangun masyarakat yang sejahtera, adil, dan berkelanjutan.',
+                misi: [
+                    'Mengembangkan potensi dan keterampilan generasi muda',
+                    'Meningkatkan kesadaran sosial dan tanggung jawab kemasyarakatan',
+                    'Memberikan wadah berkreasi dan berinovasi',
+                    'Membangun kemitraan dengan berbagai pihak untuk pembangunan bersama'
+                ]
+            },
+            struktur: [
+                { name: 'Ketua', role: 'Pimpinan Organisasi', image: '👨‍💼' },
+                { name: 'Sekretaris', role: 'Administrasi & Dokumentasi', image: '👩‍💼' },
+                { name: 'Bendahara', role: 'Pengelola Keuangan', image: '👨‍💻' },
+                { name: 'Koordinator Program', role: 'Pelaksana Program', image: '👩‍🏫' }
+            ],
+            programs: [
+                { icon: '📚', title: 'Pendidikan & Pelatihan', desc: 'Program pelatihan keterampilan, workshop, dan seminar untuk meningkatkan kompetensi pemuda dalam berbagai bidang.' },
+                { icon: '💼', title: 'Kewirausahaan', desc: 'Pembinaan dan pendampingan usaha kecil menengah untuk meningkatkan kemandirian ekonomi pemuda.' },
+                { icon: '🤝', title: 'Sosial Kemasyarakatan', desc: 'Kegiatan bakti sosial, gotong royong, dan pengabdian masyarakat untuk membangun solidaritas sosial.' },
+                { icon: '🎨', title: 'Seni & Budaya', desc: 'Pelestarian dan pengembangan seni budaya lokal melalui berbagai pertunjukan dan festival.' },
+                { icon: '⚽', title: 'Olahraga & Rekreasi', desc: 'Kompetisi olahraga dan kegiatan rekreasi untuk meningkatkan kesehatan jasmani dan rohani.' },
+                { icon: '🌱', title: 'Lingkungan Hidup', desc: 'Program penghijauan, kebersihan lingkungan, dan kampanye peduli lingkungan hidup.' }
+            ],
+            gallery: [
+                { image: '', caption: 'Kegiatan Karang Taruna' },
+                { image: '', caption: 'Kegiatan Karang Taruna' },
+                { image: '', caption: 'Kegiatan Karang Taruna' },
+                { image: '', caption: 'Kegiatan Karang Taruna' },
+                { image: '', caption: 'Kegiatan Karang Taruna' },
+                { image: '', caption: 'Kegiatan Karang Taruna' }
+            ],
+            contact: {
+                narahubung: [
+                    { name: 'Anwar Fauzi', phone: '0896-9859-1876' },
+                    { name: 'Dimas', phone: '0877-8185-8105' },
+                    { name: 'Ardian Ramadhani', phone: '0812-9843-7997' },
+                    { name: 'Shafira Syabania', phone: '0881-0124-95882' }
+                ],
+                socialMedia: [
+                    { type: 'instagram', label: 'Instagram', value: '@karangtaruna.padtim', url: 'https://instagram.com/karangtaruna.padtim' },
+                    { type: 'email', label: 'Email', value: 'pademangangtimurkarangtaruna@gmail.com', url: 'mailto:pademangangtimurkarangtaruna@gmail.com' },
+                    { type: 'youtube', label: 'YouTube', value: '@karangtarunapadtimura', url: 'https://youtube.com/@karangtarunapadtimura' },
+                    { type: 'tiktok', label: 'TikTok', value: '@karangtaruna.padtim', url: 'https://tiktok.com/@karangtaruna.padtim' }
+                ]
+            }
+        };
+
+        // Load data from localStorage
+        function loadData() {
+            const saved = localStorage.getItem('karangTarunaData');
+            if (saved) {
+                websiteData = JSON.parse(saved);
+                applyAllData();
+            }
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            // Store previous state before saving
+            previousWebsiteData = JSON.parse(JSON.stringify(websiteData));
+            
+            localStorage.setItem('karangTarunaData', JSON.stringify(websiteData));
+            lastSaveTime = new Date();
+            
+            // Show notification
+            showNotification('✅ Perubahan sudah tersimpan', 'success');
+            
+            // Update undo button visibility
+            const undoBtn = document.getElementById('undoBtn');
+            if (undoBtn) {
+                undoBtn.style.display = 'inline-block';
+            }
+        }
+
+        // Apply all data to website
+        function applyAllData() {
+            updateColors();
+            updateHero();
+            renderProfileContent();
+            renderVisiMisi();
+            renderStruktur();
+            renderPrograms();
+            renderGallery();
+            updateContact();
+            populateAdminForms();
+        }
+
+        // Populate admin forms with current data
+        function populateAdminForms() {
+            // Colors
+            document.getElementById('colorDark').value = websiteData.colors.dark;
+            document.getElementById('colorDarkText').value = websiteData.colors.dark;
+            document.getElementById('colorWine').value = websiteData.colors.wine;
+            document.getElementById('colorWineText').value = websiteData.colors.wine;
+            document.getElementById('colorClay').value = websiteData.colors.clay;
+            document.getElementById('colorClayText').value = websiteData.colors.clay;
+            document.getElementById('colorRose').value = websiteData.colors.rose;
+            document.getElementById('colorRoseText').value = websiteData.colors.rose;
+
+            // Hero
+            document.getElementById('heroTitle').value = websiteData.hero.title;
+            document.getElementById('heroDesc').value = websiteData.hero.desc;
+            document.getElementById('heroBtn').value = websiteData.hero.btnText;
+            
+            // Apply background image if exists
+            if (websiteData.hero.bgImage) {
+                const heroSection = document.querySelector('.hero');
+                heroSection.style.backgroundImage = `url('${websiteData.hero.bgImage}')`;
+                heroSection.style.backgroundSize = 'cover';
+                heroSection.style.backgroundPosition = 'center';
+                heroSection.style.backgroundAttachment = 'fixed';
+                
+                // Add overlay for text readability
+                if (!heroSection.querySelector('.hero-overlay')) {
+                    const overlay = document.createElement('div');
+                    overlay.className = 'hero-overlay';
+                    overlay.style.cssText = 'position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(80, 8, 5, 0.6); z-index: 0;';
+                    heroSection.insertBefore(overlay, heroSection.firstChild);
+                }
+                
+                // Show preview
+                const previewDiv = document.getElementById('heroBgPreview');
+                if (previewDiv) {
+                    previewDiv.innerHTML = `
+                        <div style="margin-bottom: 1rem;">
+                            <img src="${websiteData.hero.bgImage}" style="max-width: 200px; max-height: 150px; border-radius: 8px; object-fit: cover;">
+                        </div>
+                        <button type="button" class="remove-btn" onclick="removeHeroBg()" style="margin-top: 0.5rem;">🗑️ Hapus Foto</button>
+                    `;
+                }
+            }
+
+            // About
+            document.getElementById('aboutText').value = websiteData.about.text;
+            
+            // Profile Image Preview
+            const previewDiv = document.getElementById('profileImagePreview');
+            if (websiteData.about.image) {
+                previewDiv.innerHTML = `
+                    <div style="margin-bottom: 1rem;">
+                        <img src="${websiteData.about.image}" style="max-width: 200px; max-height: 150px; border-radius: 8px; object-fit: cover;">
+                    </div>
+                    <button type="button" class="remove-btn" onclick="removeProfileImage()" style="margin-top: 0.5rem;">🗑️ Hapus Foto</button>
+                `;
+            }
+
+            // Visi & Misi
+            renderVisiMisiAdmin();
+
+            // Struktur
+            renderStrukturAdmin();
+
+            // Contact - Narahubung and Social Media
+            renderNarahubungAdmin();
+            renderSocialMediaAdmin();
+
+            // Programs and Gallery
+            renderProgramsAdmin();
+            renderGalleryAdmin();
+        }
+
+        // Admin Panel Functions
+        function openAdmin() {
+            document.getElementById('adminPanel').classList.add('active');
+            populateAdminForms();
+        }
+
+        function closeAdmin() {
+            document.getElementById('adminPanel').classList.remove('active');
+        }
+
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById('tab-' + tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('saveNotification');
+            if (!notification) return;
+            
+            notification.textContent = message;
+            notification.className = 'save-notification ' + type;
+            notification.classList.add('show');
+            
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Undo changes
+        function undoChanges() {
+            if (!previousWebsiteData) {
+                alert('Tidak ada perubahan untuk dibatalkan');
+                return;
+            }
+            
+            if (confirm('Yakin ingin membatalkan perubahan terakhir?')) {
+                websiteData = JSON.parse(JSON.stringify(previousWebsiteData));
+                previousWebsiteData = null;
+                saveData();
+                applyAllData();
+                showNotification('✅ Perubahan berhasil dibatalkan!', 'undo');
+            }
+        }
+
+        // Update Colors
+        function updateColors() {
+            websiteData.colors.dark = document.getElementById('colorDark')?.value || websiteData.colors.dark;
+            websiteData.colors.wine = document.getElementById('colorWine')?.value || websiteData.colors.wine;
+            websiteData.colors.clay = document.getElementById('colorClay')?.value || websiteData.colors.clay;
+            websiteData.colors.rose = document.getElementById('colorRose')?.value || websiteData.colors.rose;
+
+            const root = document.documentElement;
+            root.style.setProperty('--dark', websiteData.colors.dark);
+            root.style.setProperty('--wine', websiteData.colors.wine);
+            root.style.setProperty('--clay', websiteData.colors.clay);
+            root.style.setProperty('--dusty-rose', websiteData.colors.rose);
+
+            saveData();
+            alert('Warna berhasil diperbarui! ✅');
+        }
+
+        // Update Hero
+        function updateHero() {
+            websiteData.hero.title = document.getElementById('heroTitle')?.value || websiteData.hero.title;
+            websiteData.hero.desc = document.getElementById('heroDesc')?.value || websiteData.hero.desc;
+            websiteData.hero.btnText = document.getElementById('heroBtn')?.value || websiteData.hero.btnText;
+            // bgImage is handled separately in previewHeroBg
+
+            document.querySelector('.hero h1').textContent = websiteData.hero.title;
+            document.querySelector('.hero p').textContent = websiteData.hero.desc;
+            document.querySelector('.hero .btn').textContent = websiteData.hero.btnText;
+
+            saveData();
+            if (document.getElementById('heroTitle')) alert('Hero section berhasil diperbarui! ✅');
+        }
+
+        // Preview Hero Background Image
+        function previewHeroBg(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const maxSize = 2 * 1024 * 1024; // 2MB
+                if (file.size > maxSize) {
+                    alert('Ukuran file terlalu besar! Maksimal 2MB');
+                    event.target.value = '';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    websiteData.hero.bgImage = e.target.result;
+                    
+                    // Update preview
+                    const previewDiv = document.getElementById('heroBgPreview');
+                    previewDiv.innerHTML = `
+                        <div style="margin-bottom: 1rem;">
+                            <img src="${e.target.result}" style="max-width: 200px; max-height: 150px; border-radius: 8px; object-fit: cover;">
+                        </div>
+                        <button type="button" class="remove-btn" onclick="removeHeroBg()" style="margin-top: 0.5rem;">Hapus Foto</button>
+                    `;
+                    
+                    // Apply to hero section immediately
+                    const heroSection = document.querySelector('.hero');
+                    heroSection.style.backgroundImage = `url('${e.target.result}')`;
+                    heroSection.style.backgroundSize = 'cover';
+                    heroSection.style.backgroundPosition = 'center';
+                    heroSection.style.backgroundAttachment = 'fixed';
+                    
+                    // Add overlay for text readability
+                    if (!heroSection.querySelector('.hero-overlay')) {
+                        const overlay = document.createElement('div');
+                        overlay.className = 'hero-overlay';
+                        overlay.style.cssText = 'position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(80, 8, 5, 0.6); z-index: 0;';
+                        heroSection.insertBefore(overlay, heroSection.firstChild);
+                    }
+                    
+                    saveData();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removeHeroBg() {
+            websiteData.hero.bgImage = '';
+            const heroBgInput = document.getElementById('heroBgImage');
+            heroBgInput.value = '';
+            
+            // Reset preview
+            const previewDiv = document.getElementById('heroBgPreview');
+            previewDiv.innerHTML = '<small style="color: #666;">Pilih foto untuk background deskripsi (JPG, PNG, max 2MB)</small>';
+            
+            // Remove background from hero
+            const heroSection = document.querySelector('.hero');
+            heroSection.style.backgroundImage = '';
+            const overlay = heroSection.querySelector('.hero-overlay');
+            if (overlay) overlay.remove();
+            
+            saveData();
+        }
+
+        // Update About
+        function updateAbout() {
+            websiteData.about.text = document.getElementById('aboutText')?.value || websiteData.about.text;
+
+            renderProfileContent();
+            saveData();
+            if (document.getElementById('aboutText')) alert('Profil berhasil diperbarui! ✅');
+        }
+
+        // Render Profile Content
+        function renderProfileContent() {
+            const textElement = document.getElementById('profileTextContent');
+            const imageArea = document.getElementById('profileImageArea');
+            
+            if (textElement) {
+                textElement.textContent = websiteData.about.text;
+            }
+            
+            if (imageArea) {
+                if (websiteData.about.image) {
+                    imageArea.innerHTML = `<img src="${websiteData.about.image}" alt="Profil" style="width: 100%; height: 100%; object-fit: cover;">`;
+                } else {
+                    imageArea.innerHTML = '<span>Bersama Membangun<br>Generasi Emas</span>';
+                }
+            }
+        }
+
+        // Handle Profile Image Upload
+        function handleProfileImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    websiteData.about.image = e.target.result;
+                    const previewDiv = document.getElementById('profileImagePreview');
+                    previewDiv.innerHTML = `
+                        <div style="margin-bottom: 1rem;">
+                            <img src="${e.target.result}" style="max-width: 200px; max-height: 150px; border-radius: 8px; object-fit: cover;">
+                        </div>
+                        <button type="button" class="remove-btn" onclick="removeProfileImage()" style="margin-top: 0.5rem;">Hapus Foto</button>
+                    `;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Remove Profile Image
+        function removeProfileImage() {
+            if (confirm('Hapus foto profil ini?')) {
+                websiteData.about.image = '';
+                renderProfileContent();
+                document.getElementById('profileImagePreview').innerHTML = '<small style="color: #666;">Pratinjau foto</small>';
+                saveData();
+            }
+        }
+
+        // Visi Misi Rendering
+        function renderVisiMisi() {
+            document.getElementById('visiContent').textContent = websiteData.visiMisi.visi;
+            const misiList = document.getElementById('misiContent');
+            if (misiList) {
+                misiList.innerHTML = '';
+                websiteData.visiMisi.misi.forEach(m => {
+                    misiList.innerHTML += `<li>${m}</li>`;
+                });
+            }
+        }
+
+        // Struktur Rendering
+        function renderStruktur() {
+            const list = document.getElementById('strukturList');
+            if (!list) return;
+            
+            list.innerHTML = '';
+            websiteData.struktur.forEach(item => {
+                list.innerHTML += `
+                    <div class="struktur-card">
+                        <div class="struktur-image">${typeof item.image === 'string' && item.image.startsWith('data:') ? `<img src="${item.image}" alt="${item.name}">` : `<div>${item.image}</div>`}</div>
+                        <h4>${item.name}</h4>
+                        <p>${item.role}</p>
+                    </div>
+                `;
+            });
+        }
+
+        // Programs Management
+        function renderProgramsAdmin() {
+            const list = document.getElementById('programsList');
+            list.innerHTML = '';
+            
+            websiteData.programs.forEach((prog, index) => {
+                list.innerHTML += `
+                    <div class="program-item">
+                        <h4>Program ${index + 1}</h4>
+                        <div class="form-group-admin">
+                            <label>Icon (Emoji)</label>
+                            <input type="text" id="progIcon${index}" value="${prog.icon}" maxlength="2">
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Judul</label>
+                            <input type="text" id="progTitle${index}" value="${prog.title}">
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Deskripsi</label>
+                            <textarea id="progDesc${index}" rows="3">${prog.desc}</textarea>
+                        </div>
+                        <button class="remove-btn" onclick="removeProgram(${index})">Hapus Program</button>
+                    </div>
+                `;
+            });
+        }
+
+        function addProgram() {
+            websiteData.programs.push({
+                icon: '⭐',
+                title: 'Program Baru',
+                desc: 'Deskripsi program baru'
+            });
+            renderProgramsAdmin();
+        }
+
+        function removeProgram(index) {
+            if (confirm('Hapus program ini?')) {
+                websiteData.programs.splice(index, 1);
+                renderProgramsAdmin();
+                renderPrograms();
+                saveData();
+            }
+        }
+
+        function savePrograms() {
+            websiteData.programs = websiteData.programs.map((prog, index) => ({
+                icon: document.getElementById(`progIcon${index}`).value,
+                title: document.getElementById(`progTitle${index}`).value,
+                desc: document.getElementById(`progDesc${index}`).value
+            }));
+            
+            renderPrograms();
+            saveData();
+            alert('Program berhasil disimpan! ✅');
+        }
+
+        function renderPrograms() {
+            const grid = document.querySelector('.programs-grid');
+            grid.innerHTML = '';
+            
+            websiteData.programs.forEach(prog => {
+                grid.innerHTML += `
+                    <div class="program-card">
+                        <div class="program-icon">${prog.icon}</div>
+                        <h3>${prog.title}</h3>
+                        <p>${prog.desc}</p>
+                    </div>
+                `;
+            });
+        }
+
+        // Visi Misi Management
+        function renderVisiMisiAdmin() {
+            const form = document.getElementById('visiMisiForm');
+            if (form) {
+                form.innerHTML = `
+                    <div class="form-group-admin">
+                        <label>Visi</label>
+                        <textarea id="visiInput" rows="4">${websiteData.visiMisi.visi}</textarea>
+                    </div>
+                    <div class="form-group-admin">
+                        <label>Misi (satu per baris)</label>
+                        <textarea id="misiInput" rows="6">${websiteData.visiMisi.misi.join('\n')}</textarea>
+                        <small>Pisahkan setiap misi dengan Enter</small>
+                    </div>
+                    <button onclick="updateVisiMisi()" class="save-btn">Simpan Visi & Misi</button>
+                `;
+            }
+        }
+
+        function updateVisiMisi() {
+            const visi = document.getElementById('visiInput')?.value || websiteData.visiMisi.visi;
+            const misi = document.getElementById('misiInput')?.value.split('\n').filter(m => m.trim()) || websiteData.visiMisi.misi;
+            
+            websiteData.visiMisi.visi = visi;
+            websiteData.visiMisi.misi = misi;
+            
+            renderVisiMisi();
+            saveData();
+            alert('Visi & Misi berhasil diperbarui! ✅');
+        }
+
+        // Struktur Management
+        function renderStrukturAdmin() {
+            const list = document.getElementById('strukturAdminList');
+            if (!list) return;
+            
+            list.innerHTML = '';
+            websiteData.struktur.forEach((item, index) => {
+                const imagePreview = typeof item.image === 'string' && item.image.startsWith('data:') 
+                    ? `<img src="${item.image}" alt="${item.name}" style="max-width: 100px; border-radius: 8px;">` 
+                    : `<div style="font-size: 2rem;">${item.image}</div>`;
+                
+                list.innerHTML += `
+                    <div class="struktur-admin-item">
+                        <h4>${item.name}</h4>
+                        <div class="form-group-admin">
+                            <label>Nama</label>
+                            <input type="text" id="strukName${index}" value="${item.name}">
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Jabatan</label>
+                            <input type="text" id="strukRole${index}" value="${item.role}">
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Foto/Emoji</label>
+                            <div style="margin-bottom: 10px;">${imagePreview}</div>
+                            <input type="file" accept="image/*" onchange="handleStrukturImageUpload(event, ${index})">
+                            <small>Atau masukkan emoji</small>
+                            <input type="text" id="strukEmoji${index}" value="${typeof item.image === 'string' && !item.image.startsWith('data:') ? item.image : ''}" maxlength="2" placeholder="emoji">
+                        </div>
+                        <button class="remove-btn" onclick="removeStruktur(${index})">Hapus Anggota</button>
+                    </div>
+                `;
+            });
+            
+            const addBtn = document.getElementById('addStrukturBtn');
+            if (addBtn) {
+                addBtn.innerHTML = '<button onclick="addStruktur()" class="add-btn">Tambah Anggota</button>';
+            }
+        }
+
+        function handleStrukturImageUpload(event, index) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    websiteData.struktur[index].image = e.target.result;
+                    renderStrukturAdmin();
+                    updateStruktur();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function addStruktur() {
+            websiteData.struktur.push({
+                name: 'Nama Anggota',
+                role: 'Jabatan',
+                image: '👤'
+            });
+            renderStrukturAdmin();
+        }
+
+        function removeStruktur(index) {
+            if (confirm('Hapus anggota ini?')) {
+                websiteData.struktur.splice(index, 1);
+                renderStrukturAdmin();
+                updateStruktur();
+            }
+        }
+
+        function updateStruktur() {
+            websiteData.struktur = websiteData.struktur.map((item, index) => ({
+                name: document.getElementById(`strukName${index}`)?.value || item.name,
+                role: document.getElementById(`strukRole${index}`)?.value || item.role,
+                image: item.image || (document.getElementById(`strukEmoji${index}`)?.value || '👤')
+            }));
+            
+            renderStruktur();
+            saveData();
+            alert('Struktur berhasil diperbarui! ✅');
+        }
+
+        // Gallery Management
+        function renderGalleryAdmin() {
+            const list = document.getElementById('galleryList');
+            list.innerHTML = '';
+            
+            websiteData.gallery.forEach((item, index) => {
+                list.innerHTML += `
+                    <div class="gallery-item-admin">
+                        <h4>Foto ${index + 1}</h4>
+                        <div class="form-group-admin">
+                            <label>URL Gambar</label>
+                            <input type="text" id="galImg${index}" value="${item.image}" placeholder="https://...">
+                            <small>Atau upload: <input type="file" accept="image/*" onchange="handleImageUpload(event, ${index})"></small>
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Caption</label>
+                            <input type="text" id="galCap${index}" value="${item.caption}">
+                        </div>
+                        <button class="remove-btn" onclick="removeGalleryItem(${index})">Hapus Foto</button>
+                    </div>
+                `;
+            });
+        }
+
+        function handleImageUpload(event, index) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(`galImg${index}`).value = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function addGalleryItem() {
+            websiteData.gallery.push({
+                image: '',
+                caption: 'Kegiatan Karang Taruna'
+            });
+            renderGalleryAdmin();
+        }
+
+        function removeGalleryItem(index) {
+            if (confirm('Hapus foto ini?')) {
+                websiteData.gallery.splice(index, 1);
+                renderGalleryAdmin();
+                renderGallery();
+                saveData();
+            }
+        }
+
+        function saveGallery() {
+            websiteData.gallery = websiteData.gallery.map((item, index) => ({
+                image: document.getElementById(`galImg${index}`).value,
+                caption: document.getElementById(`galCap${index}`).value
+            }));
+            
+            renderGallery();
+            saveData();
+            alert('Galeri berhasil disimpan! ✅');
+        }
+
+        function renderGallery() {
+            const grid = document.querySelector('.gallery-grid');
+            grid.innerHTML = '';
+            
+            websiteData.gallery.forEach(item => {
+                const bgStyle = item.image ? 
+                    `background-image: url('${item.image}'); background-size: cover; background-position: center;` :
+                    `background: linear-gradient(135deg, var(--dark), var(--wine), var(--clay));`;
+                
+                grid.innerHTML += `
+                    <div class="gallery-item" style="${bgStyle}"></div>
+                `;
+            });
+
+            // Re-add captions
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                item.style.position = 'relative';
+                const caption = document.createElement('div');
+                caption.textContent = websiteData.gallery[index].caption;
+                caption.style.cssText = `
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    padding: 1rem;
+                    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+                    color: white;
+                    font-weight: bold;
+                `;
+                item.appendChild(caption);
+            });
+        }
+
+        // Update Contact
+        function updateContact() {
+            saveNarahubung();
+            saveSocialMedia();
+            renderNarahubung();
+            renderSocialMedia();
+            saveData();
+            if (document.getElementById('narahubungAdminList')) alert('Kontak berhasil diperbarui! ✅');
+        }
+
+        // Render Narahubung
+        function renderNarahubung() {
+            const list = document.getElementById('narahubungList');
+            if (!list) return;
+            
+            list.innerHTML = '';
+            websiteData.contact.narahubung.forEach(item => {
+                list.innerHTML += `
+                    <div class="narahubung-item">
+                        <strong>${item.name}</strong>
+                        <small>${item.phone}</small>
+                    </div>
+                `;
+            });
+        }
+
+        // Render Social Media
+        function renderSocialMedia() {
+            const list = document.getElementById('socialMediaList');
+            if (!list) return;
+            
+            list.innerHTML = '';
+            websiteData.contact.socialMedia.forEach(item => {
+                const emoji = getEmojiForSocialMedia(item.type);
+                list.innerHTML += `
+                    <div class="social-media-item">
+                        <a href="${item.url}" target="_blank" rel="noopener noreferrer">
+                            <span class="social-media-icon">${emoji}</span>
+                            <div class="social-media-item-content">
+                                <strong>${item.label}</strong>
+                                <small>${item.value}</small>
+                            </div>
+                        </a>
+                    </div>
+                `;
+            });
+        }
+
+        function getEmojiForSocialMedia(type) {
+            const emojis = {
+                instagram: '📷',
+                email: '📧',
+                youtube: '▶️',
+                tiktok: '🎵',
+                facebook: '📘',
+                twitter: '🐦'
+            };
+            return emojis[type] || '🔗';
+        }
+
+        // Render Narahubung Admin
+        function renderNarahubungAdmin() {
+            const list = document.getElementById('narahubungAdminList');
+            list.innerHTML = '';
+            
+            websiteData.contact.narahubung.forEach((item, index) => {
+                list.innerHTML += `
+                    <div class="program-item">
+                        <h4>Narahubung ${index + 1}</h4>
+                        <div class="form-group-admin">
+                            <label>Nama</label>
+                            <input type="text" id="narahubung-name-${index}" value="${item.name}">
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Nomor Telepon</label>
+                            <input type="text" id="narahubung-phone-${index}" value="${item.phone}">
+                        </div>
+                        <button class="remove-btn" onclick="removeNarahubung(${index})">Hapus Narahubung</button>
+                    </div>
+                `;
+            });
+        }
+
+        function addNarahubung() {
+            websiteData.contact.narahubung.push({
+                name: 'Nama Baru',
+                phone: '0xxx-xxxx-xxxx'
+            });
+            renderNarahubungAdmin();
+        }
+
+        function removeNarahubung(index) {
+            websiteData.contact.narahubung.splice(index, 1);
+            renderNarahubungAdmin();
+        }
+
+        function saveNarahubung() {
+            websiteData.contact.narahubung.forEach((item, index) => {
+                item.name = document.getElementById(`narahubung-name-${index}`)?.value || item.name;
+                item.phone = document.getElementById(`narahubung-phone-${index}`)?.value || item.phone;
+            });
+        }
+
+        // Render Social Media Admin
+        function renderSocialMediaAdmin() {
+            const list = document.getElementById('socialMediaAdminList');
+            list.innerHTML = '';
+            
+            websiteData.contact.socialMedia.forEach((item, index) => {
+                list.innerHTML += `
+                    <div class="program-item">
+                        <h4>${item.label}</h4>
+                        <div class="form-group-admin">
+                            <label>Tipe</label>
+                            <select id="social-type-${index}" onchange="updateSocialType(${index})">
+                                <option value="instagram" ${item.type === 'instagram' ? 'selected' : ''}>Instagram</option>
+                                <option value="email" ${item.type === 'email' ? 'selected' : ''}>Email</option>
+                                <option value="youtube" ${item.type === 'youtube' ? 'selected' : ''}>YouTube</option>
+                                <option value="tiktok" ${item.type === 'tiktok' ? 'selected' : ''}>TikTok</option>
+                                <option value="facebook" ${item.type === 'facebook' ? 'selected' : ''}>Facebook</option>
+                                <option value="twitter" ${item.type === 'twitter' ? 'selected' : ''}>Twitter</option>
+                            </select>
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Label</label>
+                            <input type="text" id="social-label-${index}" value="${item.label}">
+                        </div>
+                        <div class="form-group-admin">
+                            <label>Username / Email</label>
+                            <input type="text" id="social-value-${index}" value="${item.value}">
+                        </div>
+                        <div class="form-group-admin">
+                            <label>URL Lengkap</label>
+                            <input type="text" id="social-url-${index}" value="${item.url}">
+                        </div>
+                        <button class="remove-btn" onclick="removeSocialMedia(${index})">Hapus Media Sosial</button>
+                    </div>
+                `;
+            });
+        }
+
+        function addSocialMedia() {
+            websiteData.contact.socialMedia.push({
+                type: 'instagram',
+                label: 'Instagram',
+                value: '@username',
+                url: 'https://instagram.com/username'
+            });
+            renderSocialMediaAdmin();
+        }
+
+        function removeSocialMedia(index) {
+            websiteData.contact.socialMedia.splice(index, 1);
+            renderSocialMediaAdmin();
+        }
+
+        function updateSocialType(index) {
+            const type = document.getElementById(`social-type-${index}`).value;
+            const labelInput = document.getElementById(`social-label-${index}`);
+            
+            const labels = {
+                instagram: 'Instagram',
+                email: 'Email',
+                youtube: 'YouTube',
+                tiktok: 'TikTok',
+                facebook: 'Facebook',
+                twitter: 'Twitter'
+            };
+            labelInput.value = labels[type];
+        }
+
+        function saveSocialMedia() {
+            websiteData.contact.socialMedia.forEach((item, index) => {
+                item.type = document.getElementById(`social-type-${index}`)?.value || item.type;
+                item.label = document.getElementById(`social-label-${index}`)?.value || item.label;
+                item.value = document.getElementById(`social-value-${index}`)?.value || item.value;
+                item.url = document.getElementById(`social-url-${index}`)?.value || item.url;
+            });
+        }
+
+        // Reset Website
+        function resetWebsite() {
+            if (confirm('Reset semua data ke default? Tindakan ini tidak dapat dibatalkan!')) {
+                localStorage.removeItem('karangTarunaData');
+                location.reload();
+            }
+
+        }
+
+        // Color input synchronization
+        document.addEventListener('DOMContentLoaded', function() {
+            const colorInputs = ['colorDark', 'colorWine', 'colorClay', 'colorRose'];
+            colorInputs.forEach(id => {
+                const colorPicker = document.getElementById(id);
+                const textInput = document.getElementById(id + 'Text');
+                
+                if (colorPicker && textInput) {
+                    colorPicker.addEventListener('input', function() {
+                        textInput.value = this.value;
+                    });
+                    
+                    textInput.addEventListener('input', function() {
+                        if (/^#[0-9A-F]{6}$/i.test(this.value)) {
+                            colorPicker.value = this.value;
+                        }
+                    });
+                }
+            });
+        });
+
+        // Triple click detection for admin access
+        let clickCount = 0;
+        let clickTimeout;
+        let adminButtonShown = false;
+        
+        document.addEventListener('click', function(e) {
+            // Don't count clicks on admin elements
+            if (e.target.closest('.admin-panel') || e.target.closest('.admin-btn')) {
+                return;
+            }
+            
+            clickCount++;
+            
+            // Clear timeout if exists
+            clearTimeout(clickTimeout);
+            
+            // If 3 clicks reached, show login button
+            if (clickCount === 3) {
+                showAdminLoginButton();
+                clickCount = 0;
+            }
+            
+            // Reset click count after 2 seconds
+            clickTimeout = setTimeout(() => {
+                clickCount = 0;
+            }, 2000);
+        });
+        
+        function showAdminLoginButton() {
+            // Check if already logged in
+            if (adminSession.isLoggedIn) {
+                openAdmin();
+                return;
+            }
+
+            // Remove existing button if any
+            const existingBtn = document.getElementById('adminLoginBtn');
+            if (existingBtn) existingBtn.remove();
+            
+            // Create login button
+            const loginBtn = document.createElement('button');
+            loginBtn.id = 'adminLoginBtn';
+            loginBtn.textContent = '🔐 Login Admin';
+            loginBtn.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 15px 25px;
+                background: linear-gradient(135deg, var(--wine), var(--clay));
+                color: white;
+                border: none;
+                border-radius: 50px;
+                font-weight: bold;
+                font-size: 1rem;
+                cursor: pointer;
+                z-index: 5000;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                transition: all 0.3s;
+            `;
+            
+            loginBtn.addEventListener('mouseover', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 6px 20px rgba(0,0,0,0.4)';
+            });
+            
+            loginBtn.addEventListener('mouseout', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
+            });
+            
+            loginBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openAdminLogin();
+                this.remove();
+            });
+            
+            document.body.appendChild(loginBtn);
+            
+            // Auto-remove button after 10 seconds if not clicked
+            setTimeout(() => {
+                const btn = document.getElementById('adminLoginBtn');
+                if (btn) {
+                    btn.style.opacity = '0.5';
+                    btn.style.animation = 'fadeOut 0.3s ease-in-out forwards';
+                    setTimeout(() => btn.remove(), 300);
+                }
+            }, 10000);
+        }
+        
+        // Admin Login Functions
+        function openAdminLogin() {
+            document.getElementById('adminLoginForm').classList.add('active');
+            document.getElementById('loginUsername').focus();
+            document.getElementById('loginError').classList.remove('show');
+            document.getElementById('loginError').textContent = '';
+        }
+
+        function closeAdminLogin() {
+            document.getElementById('adminLoginForm').classList.remove('active');
+            document.getElementById('loginUsername').value = '';
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('loginError').classList.remove('show');
+            document.getElementById('loginError').textContent = '';
+        }
+
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+            
+            // Validate credentials
+            if (username === 'admin' && password === 'karangtaruna2026') {
+                // Login successful - create session
+                adminSession.isLoggedIn = true;
+                adminSession.sessionToken = createSessionToken();
+                console.log('Login successful, saving session:', adminSession);
+                saveAdminSession();
+                console.log('Session after save:', adminSession);
+                
+                closeAdminLogin();
+                openAdmin();
+            } else {
+                // Login failed
+                errorDiv.textContent = '❌ Username atau password salah!';
+                errorDiv.classList.add('show');
+                document.getElementById('loginPassword').value = '';
+                document.getElementById('loginPassword').focus();
+            }
+        }
+
+        // Admin Panel Functions
+        function openAdmin() {
+            // Check if user is logged in
+            console.log('Open Admin - Session:', adminSession);
+            if (!adminSession.isLoggedIn) {
+                openAdminLogin();
+                return;
+            }
+            
+            document.getElementById('adminPanel').classList.add('active');
+            populateAdminForms();
+        }
+
+        function closeAdmin() {
+            document.getElementById('adminPanel').classList.remove('active');
+        }
+
+        function logoutAdmin() {
+            if (confirm('Yakin ingin logout? Anda harus login lagi untuk membuka panel admin.')) {
+                adminSession.isLoggedIn = false;
+                adminSession.sessionToken = null;
+                saveAdminSession();
+                closeAdmin();
+                alert('✅ Logout berhasil!');
+            }
+        }
+        
+        // Add fade out animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 0.5; }
+                to { opacity: 0; transform: translateY(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Keyboard shortcut to open admin (Ctrl + Shift + A)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+                openAdmin();
+            }
+            // Close login form with Escape
+            if (e.key === 'Escape') {
+                closeAdminLogin();
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah dikirim.');
+            this.reset();
+        });
+
+        // Load saved data on page load
+        window.addEventListener('load', function() {
+            loadData();
+        });
+    </script>
+</body>
+</html>
